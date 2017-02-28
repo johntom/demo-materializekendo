@@ -1,5 +1,16 @@
-# demo-materialize 
+# demo-materialize [https://github.com/johntom/demo-materializekendo]
+## user needs to supply kendo-sdk directory with pro edition
+##This is a wip and will be the basis for and update of prior todo repo using Aurelia with both Kendoui and Materialize.
+### the backend is developed with trails.js and I plan to have realtime working soon.
 
-[![Join the chat at https://gitter.im/aurelia-ui-toolkits/aurelia-materialize-bridge](https://badges.gitter.im/aurelia-ui-toolkits/demo-materialize.svg)](https://gitter.im/aurelia-ui-toolkits/aurelia-materialize-bridge?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-**Note**: I don't really monitor this repository as it's only meant for GitPages. If you found any issues, please post them here: https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues
+##new repo for trails 2 and Primus
+https://github.com/johntom/trails2-example-express
+
+
+##repo that needs and update
+
+https://github.com/johntom/trails-todo-app-aurelia
+
+### prior repos with trails1
+https://github.com/johntom/trails-example-express
