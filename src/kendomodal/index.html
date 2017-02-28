@@ -1,0 +1,211 @@
+<template>
+    <require from="../kendo/controls.css"></require>
+    <!--<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2016.2.714/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2016.2.714/styles/kendo.rtl.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2016.2.714/styles/kendo.default.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2016.2.714/styles/kendo.mobile.all.min.css">-->
+    <require from="aurelia-kendoui-bridge/grid/grid"></require>
+    <require from="aurelia-kendoui-bridge/grid/col"></require>
+    <require from="aurelia-kendoui-bridge/common/template"></require>
+    <style>
+        .customer-photo {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-size: 32px 35px;
+            background-position: center center;
+            vertical-align: middle;
+            line-height: 32px;
+            box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0, 0, 0, .2);
+            margin-left: 5px;
+        }
+        
+        .customer-name {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 32px;
+            padding-left: 3px;
+        }
+        /*overide width*/
+        
+        .modal {
+            width: 75%;
+        }
+          .btn-default {
+            color: #333;
+            background-color: #fff;
+            border-color: #ccc;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #428bca;
+            border-color: #357ebd;
+        }
+
+        .btn-primary:hover {
+            background-color: orange;
+        }
+
+        .btn-success {
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+        }
+
+        .btn-warning {
+            color: #fff;
+            background-color: #f0ad4e;
+            border-color: #eea236;
+        }
+
+        .btn-info {
+            color: #fff;
+            background-color: #5bc0de;
+            border-color: #46b8da;
+        }
+
+        .btn-danger {
+            color: #fff;
+            background-color: #d9534f;
+            border-color: #d43f3a;
+        }
+
+    </style>
+
+<section>
+  <ak-grid k-data-source.bind="datasource"
+          k-pageable.bind="{ refresh: true, pageSizes: true, buttonCount: 10 }"
+          k-sortable.bind="true">
+    <!-- Column definitions in HTML -->
+    <ak-col k-title="Contact Name" k-field="ContactName">
+      <ak-template>
+        <!-- Column templates directly in your markup - where they belong! -->
+        <div class="customer-photo" style='background-image: url("http://demos.telerik.com/kendo-ui/content/web/Customers/${CustomerID}.jpg");'></div>
+        <!-- Use Aurelia binding features like interpolation, value converters and binding behaviors -->
+        <div class="customer-name">${ContactName}</div>
+      </ak-template>
+    </ak-col>
+    <ak-col k-title="Contact Title" k-field="ContactTitle"></ak-col>
+    <ak-col k-title="Company Name" k-field="CompanyName"></ak-col>
+    <ak-col k-field="Country"></ak-col>
+  </ak-grid>
+ </section>
+
+    <div>
+        <p><a md-button href="#modal1">show modal (href with ID)</a></p>
+        <p><a md-button href="#modal1A">show modalA (href with ID)</a></p>
+        <p><a md-button href="#modal5">show modal5 (href with ID)</a></p>
+        <p style="margin-top: 15px;"><button md-button click.delegate="openModal()">show modal (button without ID)</button></p>
+  
+        <a class="col s1 btn btn-success waves-effect waves-lightd" click.delegate="modalOpenEcbviolations(building)">ECB-v</a>
+            <a class="col s1 btn btn-success waves-effect waves-lightd tooltipped" data-position="bottom" data-delay="50" data-tooltip="new ecb violations"
+                                                 click.delegate="modalOpenEcbviolations(building)">ECB-v</a>
+      <a md-button click.delegate="modalOpenEcbviolations(building)" md-tooltip="position: right; text: A am a tooltip;">ECB-von the right</a>
+
+  
+    </div>
+    <compose view="./modal5.html"></compose>
+   
+
+
+    <!--main-->
+    <div class=" grey lighten-2">
+        <div class="container">
+            <div class="row">
+                <h4 class="left col s12">${headingModal}
+                </h4>
+            </div>
+            <!--main Card -->
+            <div class="row">
+                <div repeat.for="list of lists">
+                    <div class="card hoverable large">
+                        <h5 class="header">&nbsp;${building}</h5>
+                        <div class="card-image">
+                            <div class="col s3">
+                                <img class="Image" src="images/card-sample-1.jpg" onerror="this.src='https://www.google.com.br/logos/2012/montessori-res.png';">
+                            </div>
+                            <div class="col s9">
+                                <div class="col s6">
+                                    <table style=' background-color: #F1F1F1;'>
+                                        <tr>
+                                            <td style="text-align: right;width:60%">
+                                                <p><b>Floors</b></p>
+                                                <p><b>Description</b></p>
+                                            </td>
+                                            <td style="text-align: left;width:40%">
+                                                <p> ${list.Floors}&nbsp;</p>
+                                                <p> ${list.Description}&nbsp;</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!--table 1-->
+                                <div class="col s6">
+                                    <table style='background-color: #F1F1F1;'>
+                                        <tr>
+                                            <td style="text-align: right;width:60%">
+                                                <p><b>Description2:</b></p>
+                                                <p><b>Description3</b></p>
+                                            </td>
+                                            <td style="text-align: left;width:40%">
+                                                <p>${list.Description}</p>
+                                                <p>${list.Description}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <!--table 2-->
+                            </div>
+                        </div>
+                        <div class="card-content"></div>
+                        <div class="card-action">
+                            <div class="col s12">
+                                <h5>Brookbridge Reports (Green) / Dob Reports (Blue) </h5>
+                                <hr>
+                                <!--<a md-button href="#modal5">show modal5 (href with ID)</a>-->
+                             
+                                  <a class="col s1 btn btn-primary tooltipped" data-position="bottom" data-delay="50" data-tooltip="test "
+                                   md-button href="#modal5">show modal5 (href with ID)</a>
+                           
+                             
+                                <a class="col s1 btn btn-primary waves-effect waves-lightd tooltipped" data-position="bottom" data-delay="50" data-tooltip="DOB Violations"
+                                    target='_blank' href="http://a810-bisweb.nyc.gov/bisweb/ActionsByLocationServlet?requestid=3&allbin=${building.BIN}&allinquirytype=BXS4OCV3&stypeocv3=V">DOB</a>
+                                <a class="col s1 btn btn-primary waves-effect waves-lightd tooltipped" data-position="bottom" data-delay="50" data-tooltip="ECB Violations"
+                                    target='_blank' href="http://a810-bisweb.nyc.gov/bisweb/ECBQueryByLocationServlet?requestid=1&allbin=${building.BIN}">ECB</a>
+                                <a class="col s1 btn btn-primary waves-effect waves-lightd tooltipped" data-position="bottom" data-delay="50" data-tooltip="DOB/Facade"
+                                    target='_blank' href="http://a810-bisweb.nyc.gov/bisweb/FacadesByLocationServlet?requestid=3&allbin=${building.BIN}">Facade</a>
+                                <a class="col s1 btn btn-primary waves-effect waves-lightd tooltipped" data-position="bottom" data-delay="50" data-tooltip="DOB/Complaints"
+                                    target='_blank' href="http://a810-bisweb.nyc.gov/bisweb/ComplaintsByAddressServlet?requestid=3&allbin=${building.BIN}">Comp..</a>
+                                <a class="col s1 btn btn-primary waves-effect waves-lightd tooltipped" data-position="bottom" data-delay="50" data-tooltip="Certificate of Occupancy"
+                                    target='_blank' href="http://a810-bisweb.nyc.gov/bisweb/COsByLocationServlet?requestid=1&allbin=${building.BIN}">C
+                                                    of O</a>
+                            </div>
+
+                            <div class="col s12">
+                               
+                                  <a class="col s1 btn btn-info tooltipped" data-position="bottom" data-delay="50" data-tooltip="test "
+                                   md-button href="#modal5">modal5</a>
+                           
+                             
+                                <a class="col s1 btn btn-info waves-effect waves-lightd tooltipped" data-position="bottom" data-delay="50" data-tooltip="DOB Violations"
+                                    target='_blank' href="http://a810-bisweb.nyc.gov/bisweb/ActionsByLocationServlet?requestid=3&allbin=${building.BIN}&allinquirytype=BXS4OCV3&stypeocv3=V">DOB</a>
+                                <a class="col s1 btn btn-info waves-effect waves-lightd tooltipped" data-position="bottom" data-delay="50" data-tooltip="ECB Violations"
+                                    target='_blank' href="http://a810-bisweb.nyc.gov/bisweb/ECBQueryByLocationServlet?requestid=1&allbin=${building.BIN}">ECB</a>
+                                <a class="col s1 btn btn-info waves-effect waves-lightd tooltipped" data-position="bottom" data-delay="50" data-tooltip="DOB/Facade"
+                                    target='_blank' href="http://a810-bisweb.nyc.gov/bisweb/FacadesByLocationServlet?requestid=3&allbin=${building.BIN}">Facade</a>
+                                <a class="col s1 btn btn-info waves-effect waves-lightd tooltipped" data-position="bottom" data-delay="50" data-tooltip="DOB/Complaints"
+                                    target='_blank' href="http://a810-bisweb.nyc.gov/bisweb/ComplaintsByAddressServlet?requestid=3&allbin=${building.BIN}">Comp..</a>
+                                <a class="col s1 btn btn-info waves-effect waves-lightd tooltipped" data-position="bottom" data-delay="50" data-tooltip="Certificate of Occupancy"
+                                    target='_blank' href="http://a810-bisweb.nyc.gov/bisweb/COsByLocationServlet?requestid=1&allbin=${building.BIN}">C
+                                                    of O</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end main card -->
+    </div>
+</template>
