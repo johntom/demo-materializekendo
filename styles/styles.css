@@ -1,33 +1,6 @@
-/*@import "material-colors.css";*/
-
-body, html {
+body {
   margin: 0;
-  /*font-family: Arial, sans-serif;*/
-}
-
-.view-about-images div {
-  height: 205px;
-  text-align: center;
-  line-height: 205px;
-  margin-bottom: 40px;
-}
-
-.view-about-images > div:nth-child(3) > img {
-  margin-top: 60px;
-}
-
-au-code pre {
-  display: block;
-  padding: 9.5px;
-  margin: 0 0 10px;
-  font-size: 13px;
-  line-height: 1.42857143;
-  color: #333;
-  /*word-break: break-all;
-  word-wrap: break-word;*/
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+    font-family: Arial, sans-serif;
 }
 
 .splash {
@@ -40,7 +13,6 @@ au-code pre {
     font-size: 44px;
     line-height: 44px;
     font-family: Arial, sans-serif;
-    margin-bottom: 2rem;
 }
 
 .splash .subtitle {
@@ -227,7 +199,7 @@ div.au-stagger {
   height: 100%;
 }
 
-.demo-section.k-content {
+.k-content, .k-content * {
   box-sizing: content-box;
 }
 
@@ -245,7 +217,7 @@ menu {
 }
 
 .help-docs .k-header {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 #doc > .col-md-3, #doc > .col-md-9 {
@@ -274,13 +246,20 @@ li.L0, li.L1, li.L2, li.L3,
 li.L5, li.L6, li.L7, li.L8 {
   list-style-type: decimal !important
 }
-.date-picker + i.material-icons {
-  margin-left: -24px;
-  line-height: 1;
-  margin-top: 12px;
-  cursor: pointer;
+
+#exampleWrap li {
+  list-style-type: none;
 }
 
-.picker {
-  position: fixed !important;
+collapse-panel .buttons {
+  display: inline;
+  float: right;
+}
+
+collapse-panel .panel-heading {
+  height: 46px;
+}
+
+collapse-panel .panel-heading strong {
+  line-height: 26px;
 }

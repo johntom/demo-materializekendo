@@ -1,0 +1,37 @@
+<template>
+
+    <require from="./controls.css"></require>
+   
+    <script src="kendo-sdk/js/kendo.all.min.js"></script>
+    <require from="aurelia-kendoui-bridge/grid/grid"></require>
+    <require from="aurelia-kendoui-bridge/grid/col"></require>
+    <require from="aurelia-kendoui-bridge/common/template"></require>
+
+    <div id="modal6" md-modal md-modal.ref="modal6">
+         <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>A bunch of text</p>
+
+             <ak-grid k-data-source.bind="datasource" k-pageable.bind="{ refresh: true, pageSizes: true, buttonCount: 10 }" k-sortable.bind="true">
+              
+                    <ak-col k-title="Contact Name" k-field="ContactName">
+                        <ak-template>
+                             <div class="customer-photo" style='background-image: url("http://demos.telerik.com/kendo-ui/content/web/Customers/${CustomerID}.jpg");'></div>
+                             <div class="customer-name">${ContactName}</div>
+                        </ak-template>
+                    </ak-col>
+                    <ak-col k-title="Contact Title" k-field="ContactTitle"></ak-col>
+                    <ak-col k-title="Company Name" k-field="CompanyName"></ak-col>
+                    <ak-col k-field="Country"></ak-col>
+            </ak-grid>
+        </div>
+        <div class="modal-footer">
+                 <p><a md-button href="#modal7">show modal7 compose</a></p>
+       
+            <a click.delegate="agree()" md-button="flat: true;" md-waves="color: accent;" class="modal-action modal-close">Agree</a>
+            <a click.delegate="disagree()" md-button="flat: true;" md-waves="color: accent;" class="modal-action modal-close">Disagree</a>
+        </div>
+    </div>
+ <compose view="./modal7.html"></compose>
+
+</template>

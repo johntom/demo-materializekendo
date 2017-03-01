@@ -16,7 +16,6 @@ export class App {
       { name: 'samples',          route: ['samples'],                  moduleId: 'samples/samples',             title: 'Samples' },
      { name: 'kendo', route: 'kendo/kendo', moduleId: 'kendo/kendo', title: 'kendo' },
   
-      { name: 'kendomodal', route: 'kendomodal/index', moduleId: 'kendomodal/index', title: 'kendomodal' }
   
     ]);
 
