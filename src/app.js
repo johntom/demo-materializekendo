@@ -4,7 +4,7 @@ export class App {
   errorColor = '#f44336';
 
   configureRouter(config, router) {
-    config.title = 'Aurelia Materialize Components';
+    config.title = 'Aurelia Materialize & Kendoui Components';
 
     config.map([
       { name: 'about',            route: ['', 'about'],                moduleId: 'about/about',                 title: 'About' },
